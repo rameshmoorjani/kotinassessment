@@ -64,4 +64,24 @@ class NumberConversionTest {
             assertEquals("Conversion for input: $input", expected, actual)
         }
     }
+
+    @Test
+    fun convertRomainToNumber()
+    {
+        val converter = IntegerToRoman()
+        val inputs = arrayOf("III", "IV", "IX", "LVII", "MMM")
+        val expectedOutputs = intArrayOf(3, 4, 9, 58, 3000)
+
+        for (i in inputs.indices) {
+            val result = converter.romanToInt(inputs[i])
+            println("Input: ${inputs[i]}, Expected: ${expectedOutputs[i]}, Result: $result")
+            if (result == expectedOutputs[i]) {
+                println("Test case ${i + 1} PASSED")
+            } else {
+                println("Test case ${i + 1} FAILED")
+            }
+            println("--------------------------------------")
+        }
+    }
+
 }
